@@ -79,9 +79,9 @@
   .optin-hero {
     padding: 56px 0 80px;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: 56px;
-    align-items: center;
+    align-items: start;
   }
 
   .kicker {
@@ -112,6 +112,44 @@
     line-height: 1.62;
     margin-bottom: 28px;
     opacity: 0.92;
+  }
+
+  /* CONTENEDOR DE VIDEO EDITORIAL */
+  .video-showcase {
+    margin: 28px 0 32px;
+  }
+
+  .video-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--marron);
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--marron);
+    border: 1.5px solid var(--marron);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 10px 10px 0px var(--oliva);
+  }
+
+  .video-frame iframe,
+  .video-frame video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
   }
 
   .bullets {
@@ -146,6 +184,8 @@
     border-radius: 20px;
     padding: 36px 32px;
     box-shadow: 12px 12px 0px var(--marron);
+    position: sticky;
+    top: 28px;
   }
 
   .form-card-badge {
@@ -366,6 +406,7 @@
       padding: 36px 0 60px;
     }
     .form-card {
+      position: static;
       padding: 28px 22px;
       box-shadow: 8px 8px 0px var(--marron);
     }
@@ -387,7 +428,7 @@
     <span class="nav-tag">Acceso Gratuito · Clase + Workbook</span>
   </header>
 
-  <!-- Hero con formulario integrado -->
+  <!-- Hero con video y formulario integrado -->
   <main class="container">
     <div class="optin-hero">
       <div>
@@ -397,6 +438,26 @@
           Descubrí cómo ordenar tus distintas facetas, alinear tus puntos de contacto y dejar de publicar por inercia para empezar a atraer oportunidades reales con tu trabajo.
         </p>
 
+        <!-- BLOQUE DE VIDEO DE ADELANTO / INVITACIÓN -->
+        <div class="video-showcase">
+          <span class="video-label">▶ Mirá este adelanto de 1 minuto</span>
+          <div class="video-frame">
+            <!-- OPCIÓN A: Reemplazá ID_DEL_VIDEO_INVITACION por el ID de tu video en YouTube (ej: dQw4w9WgXcQ) -->
+            <iframe
+              src="https://www.youtube.com/embed/ID_DEL_VIDEO_INVITACION?rel=0&modestbranding=1"
+              title="Adelanto Masterclass · Fe Lacuadra"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+
+            <!-- OPCIÓN B: Si preferís subir un MP4 directo a GitHub (ej: video-invitacion.mp4), borrá el <iframe> de arriba y usá esto:
+            <video controls playsinline poster="foto-sobre-mi.jpg">
+              <source src="video-invitacion.mp4" type="video/mp4">
+            </video>
+            -->
+          </div>
+        </div>
+
         <ul class="bullets">
           <li><strong>La diferencia real:</strong> Por qué publicar todos los días sin tesis de marca agota y cómo construir un universo propio con criterio editorial.</li>
           <li><strong>Integrar sin recortarte:</strong> Cómo unir tus distintos intereses y talentos bajo una misma firma clara y deseada.</li>
@@ -404,7 +465,7 @@
         </ul>
       </div>
 
-      <!-- Formulario MailerLite -->
+      <!-- Formulario MailerLite (Sticky en escritorio para que siempre quede a mano) -->
       <div class="form-card">
         <span class="form-card-badge">Envío inmediato por correo</span>
 
